@@ -132,3 +132,33 @@ The cryptographic construction is based on the official RFC Editor publication:
 - 🛠️ [RFC 8439 — Errata](https://www.rfc-editor.org/errata/rfc8439)
 
 RFC 8439 defines ChaCha20, Poly1305, and their AEAD combination, and obsoletes RFC 7539.
+
+🛡️ Security is hard-earned. Protect yourself, protect your friends, use cryptography responsibly, and stand against abuse and malicious activity.
+
+
+
+## ❤️ Support the Project
+
+If this project has been useful to you and you would like to support its continued development, maintenance, and open-source work, donations are always appreciated. Thank you for supporting independent development and open-source cryptography. 🔐
+
+### ₿ Bitcoin
+
+```text
+bc1qxqfhumpqtnxrznkx9r4xsp8m6zsedtgusjns7p
+```
+
+### Ξ Ethereum
+
+```text
+0x2d92f9e4d8ac7effa9cd7cd5eccd364cac7c201b
+```
+
+### Ł Litecoin
+
+```text
+ltc1qx60jqksl8pa38zmqjxau0vy04rqpjgfpn0xgw3
+```
+
+> 💡 Please make sure you are sending funds on the correct network. Cryptocurrency transactions are generally irreversible, so always verify the address before sending.
+
+
