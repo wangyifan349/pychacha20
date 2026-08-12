@@ -29,7 +29,9 @@ python chacha20ploy1305.py
 Run:
 
 ```bash
-python "chacha20_poly1305(1).py"
+git clone https://github.com/wangyifan349/pychacha20
+cd pychacha20
+python chacha20ploy1305.py
 ```
 
 Choose the operation:
@@ -54,6 +56,12 @@ A random 256-bit key can be generated with Python:
 
 ```bash
 python -c "import os; print(os.urandom(32).hex())"
+```
+
+or
+
+```bash
+python -c "import secrets; print(secrets.token_hex(32))"
 ```
 
 > ⚠️ Keep the key safe. If the key is lost, the encrypted data cannot be recovered.
