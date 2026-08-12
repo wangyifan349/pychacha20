@@ -162,7 +162,6 @@ ltc1qx60jqksl8pa38zmqjxau0vy04rqpjgfpn0xgw3
 > 💡 Please make sure you are sending funds on the correct network. Cryptocurrency transactions are generally irreversible, so always verify the address before sending.
 
 ## 📜 License
-
 The `chacha20ploy1305.py` file in this repository is licensed under the **Apache License 2.0**.
 
 ✅ You may use, modify, distribute, and use this file commercially.  
@@ -170,7 +169,5 @@ The `chacha20ploy1305.py` file in this repository is licensed under the **Apache
 ✅ The license also includes an explicit patent grant from contributors.
 
 ⚠️ You must preserve the Apache License 2.0, applicable copyright notices, and required attribution notices when redistributing the file. Modified versions should clearly state that changes were made. If a `NOTICE` file is provided, its required notices must also be preserved.
-
 ❌ The license does not grant permission to use project trademarks, and the file is provided **“AS IS”**, without warranties or guarantees.
-
 For the complete terms, see the [`LICENSE`](LICENSE) file.
