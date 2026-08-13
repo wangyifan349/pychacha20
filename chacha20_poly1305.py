@@ -143,23 +143,30 @@ def process_path(path, key, mode):
                 print(f"[ERROR] {file_path}: {error}")
 # ------------------------------------------------------------
 if __name__ == "__main__":
-    print("ChaCha20-Poly1305")
-    print("1. Encrypt")
-    print("2. Decrypt")
-    choice = input("> ").strip()
-    if choice == "1":
-        mode = "encrypt"
-    elif choice == "2":
-        mode = "decrypt"
-    else:
-        raise ValueError("invalid mode")
-    path = input("File or directory: ").strip().strip('"')
-    key_hex = input("Key (64 hexadecimal characters): ").strip()
-    try:
-        key = bytes.fromhex(key_hex)
-    except ValueError:
-        raise ValueError("key must be hexadecimal")
-    if len(key) != 32:
-        raise ValueError("key must contain exactly 32 bytes")
-    process_path(path, key, mode)
-    print("Done.")
+    while True:
+        print("ChaCha20-Poly1305")
+        print("1. Encrypt")
+        print("2. Decrypt")
+        choice = input("> ").strip()
+        if choice == "1":
+            mode = "encrypt"
+        elif choice == "2":
+            mode = "decrypt"
+        else:
+            print("Invalid mode")
+            continue
+        path = input("File or directory: ").strip().strip('"')
+        key_hex = input("Key (64 hexadecimal characters): ").strip()
+        try:
+            key = bytes.fromhex(key_hex)
+        except ValueError:
+            print("Key must be hexadecimal")
+            continue
+        if len(key) != 32:
+            print("Key must contain exactly 32 bytes")
+            continue
+        try:
+            process_path(path, key, mode)
+            print("Done.")
+        except Exception as error:
+            print(f"[ERROR] {error}")
