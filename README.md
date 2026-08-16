@@ -19,7 +19,9 @@ The script uses only Python's standard library. It keeps file names and director
 ## 📦 Deployment
 
 ```bash
-git clone https://github.com/wangyifan349/pychacha20
+git clone https://github.com/wangyifan349/pychacha20.git
+cd pychacha20
+python chacha20ploy1305.py
 cd pychacha20
 python chacha20ploy1305.py
 ```
@@ -29,7 +31,7 @@ python chacha20ploy1305.py
 Run:
 
 ```bash
-git clone https://github.com/wangyifan349/pychacha20
+git clone https://github.com/wangyifan349/pychacha20.git
 cd pychacha20
 python chacha20ploy1305.py
 ```
