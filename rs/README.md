@@ -19,7 +19,7 @@ The program uses only Rust's standard library. It keeps file names and directory
 ## 📦 Deployment
 
 ```bash
-git clone https://github.com/wangyifan349/pychacha20
+git clone https://github.com/wangyifan349/pychacha20.git
 cd pychacha20
 cd  rs
 cargo fmt --all -- --check
