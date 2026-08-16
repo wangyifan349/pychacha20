@@ -1,0 +1,19 @@
+[package]
+name = "chacha20_poly1305"
+version = "1.0.0"
+edition = "2021"
+
+[[bin]]
+name = "chacha20_poly1305"
+path = "chacha20ploy1305.rs"
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
+debug = false
+debug-assertions = false
+overflow-checks = false
+incremental = false
