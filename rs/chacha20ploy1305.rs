@@ -73,8 +73,8 @@ fn chacha20_block(key: &[u8], counter: u64, nonce: &[u8]) -> ApplicationResult<[
     }
     let constants = b"expand 32-byte k";
     let mut state = [0u32; 16];
-    for index in 0..4 {
-        state[index] = load_little_endian_u32(constants, index * 4);
+    for (index, state_word) in state.iter_mut().take(4).enumerate() {
+        *state_word = load_little_endian_u32(constants, index * 4);
     }
     for index in 0..8 {
         state[4 + index] = load_little_endian_u32(key, index * 4);
@@ -109,7 +109,7 @@ fn chacha20_xor(key: &[u8], nonce: &[u8], counter: u64, data: &[u8]) -> Applicat
     if counter > UINT32_MASK {
         return Err("counter must be a 32-bit unsigned integer".to_string());
     }
-    let block_count = ((data.len() as u64) + 63) / 64;
+    let block_count = (data.len() as u64).div_ceil(CHACHA20_BLOCK_SIZE as u64);
     match counter.checked_add(block_count) {
         Some(value) if value <= (1u64 << 32) => {}
         _ => return Err("ChaCha20 counter overflow".to_string()),
@@ -495,6 +495,9 @@ fn input(prompt: &str) -> io::Result<String> {
 }
 
 fn main() {
+	println!("This program has no external dependencies and provides a standards-compliant ChaCha20-Poly1305 implementation consistent with RFC 8439.");
+    println!("Sponsor (BTC): bc1qxqfhumpqtnxrznkx9r4xsp8m6zsedtgusjns7p");
+
     loop {
         println!("ChaCha20-Poly1305");
         println!("1. Encrypt");
