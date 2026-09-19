@@ -151,3 +151,19 @@ To reconstruct the wallet reliably, record:
 - Instructions for locating the seed backups
 
 Spending requires valid signing material from at least two cosigners. Test the recovery procedure before storing a significant balance.
+
+1. Electrum
+```
+https://electrum.org
+https://github.com/spesmilo/electrum
+```
+3. Wasabi Wallet
+```
+https://wasabiwallet.io
+https://github.com/WalletWasabi/WalletWasabi
+```
+4. Sparrow Wallet
+```
+https://sparrowwallet.com
+https://github.com/sparrowwallet/sparrow
+```
