@@ -495,13 +495,45 @@ fn input(prompt: &str) -> io::Result<String> {
 }
 
 fn main() {
+    let arguments: Vec<String> = std::env::args().skip(1).collect();
+    if !arguments.is_empty() {
+        if arguments.len() != 3 {
+            println!("Usage: chacha20_poly1305 <-e|-d|-encrypt|-decrypt> <file-or-directory> <64-character-hex-key>");
+            return;
+        }
+        let mode = match arguments[0].as_str() {
+            "-e" | "-encrypt" => OperationMode::Encrypt,
+            "-d" | "-decrypt" => OperationMode::Decrypt,
+            _ => {
+                println!("Operation must be -e, -d, -encrypt, or -decrypt");
+                return;
+            }
+        };
+        let path_text = arguments[1].trim_matches('"');
+        let key_hexadecimal = arguments[2].trim_matches('"');
+        let key = match bytes_from_hexadecimal_like_python(key_hexadecimal) {
+            Ok(key) => key,
+            Err(_) => {
+                println!("Key must be hexadecimal");
+                return;
+            }
+        };
+        if key.len() != KEY_SIZE {
+            println!("Key must contain exactly 32 bytes");
+            return;
+        }
+        match process_path(Path::new(path_text), &key, mode) {
+            Ok(()) => println!("Done."),
+            Err(error) => println!("[ERROR] {}", error),
+        }
+        return;
+    }
 	println!("This program has no external dependencies and provides a standards-compliant ChaCha20-Poly1305 implementation consistent with RFC 8439.");
-    println!("Sponsor (BTC): bc1qxqfhumpqtnxrznkx9r4xsp8m6zsedtgusjns7p");
-
     loop {
         println!("ChaCha20-Poly1305");
         println!("1. Encrypt");
         println!("2. Decrypt");
+        println!("3. Generate random key");
         let choice = match input("> ") {
             Ok(value) => value,
             Err(error) => {
@@ -509,6 +541,13 @@ fn main() {
                 continue;
             }
         };
+        if choice == "3" {
+            match random_hexadecimal(KEY_SIZE) {
+                Ok(key) => println!("Random key (64 hexadecimal characters):\n{}", key),
+                Err(error) => println!("[ERROR] {}", error),
+            }
+            continue;
+        }
         let mode = match choice.as_str() {
             "1" => OperationMode::Encrypt,
             "2" => OperationMode::Decrypt,
