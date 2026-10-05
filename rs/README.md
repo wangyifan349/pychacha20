@@ -153,7 +153,7 @@ If this project has been useful to you and you would like to support its continu
 ### ₿ Bitcoin
 
 ```text
-bc1qxqfhumpqtnxrznkx9r4xsp8m6zsedtgusjns7p
+bc1qwhzzk5tx07592vkf97rt8x8v0zdntad8lexnrgv3gdmecg8pfmhqzceedl
 ```
 
 ### Ξ Ethereum
